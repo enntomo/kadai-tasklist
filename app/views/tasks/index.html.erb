@@ -1,6 +1,6 @@
-<h1>タスク一覧</h1>
-
-<% if @tasks.any? %>
+<% if logged_in? %>
+ <h1>タスク一覧</h1>
+ <% if @tasks.any? %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -26,9 +26,11 @@
 
 <%= link_to '新規タスクの追加', new_task_path, class: "btn btn-primary" %>
 
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Tasklist</h1>
-    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Microposts</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
