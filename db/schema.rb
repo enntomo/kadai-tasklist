@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2020_04_16_081904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.bigint "user_id_id"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["user_id_id"], name: "index_tasks_on_user_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
